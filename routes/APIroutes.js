@@ -4,7 +4,7 @@ const db = require("../models")
 // console.log("*******************************");
 module.exports = (app) => {
 // POST
-app.post("/api/workout", (req, res) => {
+app.post("/api/workouts", (req, res) => {
     // Create current date/time
     db.Work.create({day: Date.now()})
     .then(Workout => {
@@ -16,7 +16,7 @@ app.post("/api/workout", (req, res) => {
 })
 
 // PUT
-app.put("/api/workout/:id", (req, res) => {
+app.put("/api/workouts/:id", (req, res) => {
     console.log(req.body)
     db.Exercise.create(req.body)
     .then((data) => db.Work.findOneAndUpdate(
@@ -40,7 +40,7 @@ app.put("/api/workout/:id", (req, res) => {
 })
 
 // GET
-    app.get("/api/workout", (req, res) => {
+    app.get("/api/workouts", (req, res) => {
         db.Work.find({})
         .populate("exercises")
         .then(dbWorkout=> {
@@ -51,7 +51,7 @@ app.put("/api/workout/:id", (req, res) => {
         })
     })
 
-    app.get("/api/workout/range", (req, res) => {
+    app.get("/api/workouts/range", (req, res) => {
         db.Work.find({})
         .populate("exercises")
         .then(dbWorkout => {
