@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const db = require("../models/workout.js")
+const db = require("../models/")
 // console.log("*******************************");
 // console.log(db );
 // console.log("*******************************");
