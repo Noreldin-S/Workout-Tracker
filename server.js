@@ -21,12 +21,12 @@ app.use(express.static(__dirname + '/public'));
 
 require("./routes/htmlRoutes")(app)
 require("./routes/apiRoutes")(app);
-// const uri = process.env.MONGO_URI;
-// mongoose.connect(uri, { useNewUrlParser: true });
-// const connection = mongoose.connection;
-// connection.once('open', () => {
-//   console.log('MongoDB database connection established successfully');
-// });
+const uri = process.env.MONGO_URI;
+mongoose.connect(uri, { useNewUrlParser: true });
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log('MongoDB database connection established successfully');
+});
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {useNewUrlParse: true});
 
 app.listen(PORT, () =>{
