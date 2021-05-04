@@ -1,4 +1,5 @@
-const db = require("../models")
+const router = require('express').Router();
+const db = require("../models/workout.js")
 // console.log("*******************************");
 // console.log(db );
 // console.log("*******************************");
@@ -63,3 +64,4 @@ app.put("/api/workouts/:id", (req, res) => {
     })
     
 }
+module.exports = router;
